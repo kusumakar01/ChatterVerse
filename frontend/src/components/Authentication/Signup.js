@@ -100,7 +100,7 @@ const Signup = () => {
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
-      data.append("upload_preset", "chat-app");
+      data.append("upload_preset", "chatterverse");
       data.append("cloud_name", "kusumakarproject");
       fetch("https://picsum.photos/400", {
         method: "post",
