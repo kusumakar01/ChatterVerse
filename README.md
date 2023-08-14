@@ -49,7 +49,7 @@ Start the Client (in new Terminal)
   
 # Features
 
-### Authenticaton
+### Authentication
 ### Real Time Chatting with Typing indicators
 ### One to One chat
 ### Search Users
