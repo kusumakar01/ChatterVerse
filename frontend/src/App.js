@@ -2,7 +2,7 @@ import "./App.css";
 import Homepage from "./Pages/Homepage";
 import { Route } from "react-router-dom";
 import Chatpage from "./Pages/Chatpage";
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import BIRDS from 'vanta/dist/vanta.birds.min'
 
 
