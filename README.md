@@ -1,7 +1,7 @@
 
 # ChatterVerse
 
-ChatterVerse is a Chat Application that ships you to a Whole New Universe of Chatting.
+ChatterVerse is a Chat Application that ships you to a whole new universe of chatting.
 It is a MERN stack based app that stores the user details in an encrypted format in Mongo DB Database and uses Socket.io to provide them a real time communication environment.
 
 ## Tech Stack
