@@ -101,8 +101,8 @@ const Signup = () => {
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "chatterverse");
-      data.append("cloud_name", "kusumakarproject");
-      fetch("https://picsum.photos/400", {
+      data.append("cloud_name", "ktcloud");
+      fetch("https://api.cloudinary.com/v1_1/ktcloud", {
         method: "post",
         body: data,
       })
@@ -138,7 +138,7 @@ const Signup = () => {
           onChange={(e) => setName(e.target.value)}
         />
       </FormControl>
-      <FormControl id="email" isRequired>
+      <FormControl id="signupemail" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
           type="email"
@@ -146,7 +146,7 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
-      <FormControl id="password" isRequired>
+      <FormControl id="signuppassword" isRequired>
         <FormLabel>Password</FormLabel>
         <InputGroup size="md">
           <Input
@@ -161,7 +161,7 @@ const Signup = () => {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <FormControl id="password" isRequired>
+      <FormControl id="confirmpassword" isRequired>
         <FormLabel>Confirm Password</FormLabel>
         <InputGroup size="md">
           <Input
