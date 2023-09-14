@@ -102,7 +102,7 @@ const Signup = () => {
       data.append("file", pics);
       data.append("upload_preset", "chatterverse");
       data.append("cloud_name", "ktcloud");
-      fetch("https://api.cloudinary.com/v1_1/ktcloud", {
+      fetch("https://api.cloudinary.com/v1_1/ktcloud/image/upload", {
         method: "post",
         body: data,
       })
