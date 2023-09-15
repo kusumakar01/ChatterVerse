@@ -19,7 +19,7 @@ const Login = () => {
   const history = useHistory();
   const { setUser } = ChatState();
 
-  const submitHandler = async () => {
+  const loginHandler = async () => {
     setLoading(true);
     if (!email || !password) {
       toast({
@@ -70,6 +70,59 @@ const Login = () => {
     }
   };
 
+  const generateRandomString = (length) => {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
+
+  const guestHandler = async () => {
+    const randomString = generateRandomString(5);
+    const name = "Guest " + randomString;
+    const email = `guest.${randomString}@cv.com`;
+    const password = generateRandomString(5);
+
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/user",
+        {
+          name,
+          email,
+          password,
+        },
+        config
+      );
+      toast({
+        title: `Guest ${randomString} Password: ${password}`,
+        status: "success",
+        duration: 8000,
+        isClosable: true,
+        position: "bottom",
+      });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      history.push("/chats");
+    } catch (error) {
+      toast({
+        title: "Error Occured!",
+        description: error.response.data.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+    }
+  };
+
   return (
     <VStack spacing="10px">
       <FormControl id="email" isRequired>
@@ -101,7 +154,7 @@ const Login = () => {
         colorScheme="blue"
         width="100%"
         style={{ marginTop: 15 }}
-        onClick={submitHandler}
+        onClick={loginHandler}
         isLoading={loading}
       >
         Login
@@ -110,10 +163,7 @@ const Login = () => {
         variant="solid"
         colorScheme="red"
         width="100%"
-        onClick={() => {
-          setEmail("guest@example.com");
-          setPassword("123456");
-        }}
+        onClick={guestHandler}
       >
         Get Guest User Credentials
       </Button>

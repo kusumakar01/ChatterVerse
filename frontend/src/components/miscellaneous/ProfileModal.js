@@ -46,7 +46,7 @@ const ProfileModal = ({ user, children }) => {
               borderRadius="full"
               boxSize="150px"
               src={user.pic}
-              alt={user.name}
+              fallbackSrc="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
             />
             <Text
               fontSize={{ base: "28px", md: "30px" }}
