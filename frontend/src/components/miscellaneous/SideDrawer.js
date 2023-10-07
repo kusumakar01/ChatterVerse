@@ -41,6 +41,7 @@ function SideDrawer() {
   const {
     setSelectedChat,
     user,
+    setUser,
     notification,
     setNotification,
     chats,
@@ -53,6 +54,7 @@ function SideDrawer() {
 
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
+    setUser(null);
     history.push("/");
   };
 
